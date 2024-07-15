@@ -3,14 +3,14 @@ import { Icon } from "@iconify/react";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button, Modal } from '@mui/material';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useLocation } from 'react-router-dom';
 import ModalForm from './ModalForm';
 import { updateVoterAction } from '../redux/actions/action';
 import { useDispatch, useSelector } from 'react-redux';
 
 const VoterTable = ({ voters }) => {
   const dispatch = useDispatch();
-  const [userType, setUserType] = useState(localStorage.getItem('userType')); 
+   const [userType, setUserType] = useState(location.pathname);
   const [selectedVoter, setSelectedVoter] = useState(null);
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -26,6 +26,11 @@ const VoterTable = ({ voters }) => {
   });
 
   const updateData = useSelector((state) => state); 
+
+   useEffect(() => {
+    setUserType(location.pathname);
+    // alert(userType);
+  }, [location]);
 
   const handleOpen = (voter) => {
     setSelectedVoter(voter);
@@ -86,7 +91,7 @@ const VoterTable = ({ voters }) => {
               <TableCell sx={{fontWeight:'bold',color:'white'}}>Casted</TableCell>
               <TableCell sx={{fontWeight:'bold',color:'white'}}>Party</TableCell>
               <TableCell sx={{fontWeight:'bold',color:'white'}}>Figured By</TableCell>
-              {userType === 'volunteer' && <TableCell sx={{fontWeight:'bold',color:'white'}}>Action </TableCell>} 
+              {userType === '/VolunteerData' && <TableCell sx={{fontWeight:'bold',color:'white'}}>Action </TableCell>} 
             </TableRow>
           </TableHead>
           <TableBody>
@@ -102,7 +107,7 @@ const VoterTable = ({ voters }) => {
                 <TableCell>{voter.casted ? "Yes" : "No"}</TableCell>
                 <TableCell>{voter.party}</TableCell>
                 <TableCell>{voter.figured_by}</TableCell>
-                {userType === 'volunteer' && (
+                {userType === '/VolunteerData' && (
                   <TableCell>
                     <Button onClick={() => handleOpen(voter)}>
                       <Icon icon="clarity:edit-solid" width="18" height="18"  style={{color: 'black'}} />
