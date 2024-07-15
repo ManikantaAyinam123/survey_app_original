@@ -124,6 +124,12 @@ const VolunteerData = () => {
         </Grid>
       </Grid>
 
+       {!selectedBoothInAutocomplete && (
+        <Typography variant="body2" sx={{ marginTop: 4, display:'flex',justifyContent:'center',fontWeight:'bold',fontSize:'20px'}}>
+          Please enter a booth name to start.
+        </Typography>
+      )}
+
        
       {selectedBoothInAutocomplete &&  (
         <>

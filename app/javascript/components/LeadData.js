@@ -156,6 +156,12 @@ console.log("i am in booth names file",boothNames)
         </Grid>
       </Grid>
       <>
+      {booth.trim() === '' && (
+        <Typography variant="body2" sx={{ marginTop: 4, display:'flex',justifyContent:'center',fontWeight:'bold',fontSize:'20px'}}>
+          Please enter a booth name to start.
+        </Typography>
+      )}
+      
         {selectedBoothInAutocomplete && (
           <>
             {searchName.trim() !== '' ? (
