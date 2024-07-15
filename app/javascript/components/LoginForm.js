@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { loginAction } from '../redux/actions/action';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { TextField, Button, Typography, Box, Grid } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,16 +9,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const authState = useSelector((state) => state.loginReducer.user);
-     console.log(localStorage.getItem('token') )
-
-     console.log(localStorage.getItem('userType') )
-     console.log(localStorage.getItem('username') )
-  console.log("login data", authState);
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({ email: '', password: '' });
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -49,16 +44,18 @@ const LoginForm = () => {
 
     setErrors(newErrors);
     if (formIsValid) {
-      console.log("form valid")
-      dispatch(loginAction(formData,navigate));
+      dispatch(loginAction(formData, navigate));
     }
+  };
 
-  }
- 
-  
+  useEffect(() => {
+    if (authState) {
+      const from = location.state?.from?.pathname || ''; 
+      navigate(from, { replace: true });
+      window.history.pushState(null, null, window.location.href); 
+    }
+  }, [authState, navigate, location]);
 
-
-  
   return (
     <>
       <Grid container justifyContent="center" alignItems="center" sx={{ height: '100vh' }}>
@@ -73,7 +70,7 @@ const LoginForm = () => {
               <Box mb={3}>
                 <TextField
                   fullWidth
-                  placeholder=" Enter Email"
+                  placeholder="Enter Email"
                   name="email"
                   type="email"
                   required
