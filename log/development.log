@@ -878,3 +878,4 @@ puma (6.4.2) lib/puma/server.rb:464:in `process_client'
 puma (6.4.2) lib/puma/server.rb:245:in `block in run'
 puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
 DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /home/actimize/Music/survey_app_original/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /home/actimize/Music/survey_app_original/config/environment.rb:5)
