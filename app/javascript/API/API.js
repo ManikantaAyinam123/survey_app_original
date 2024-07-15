@@ -98,7 +98,7 @@ class API {
 
           // Handle specific errors based on status or error messages
           if (err?.status === 401) {
-            toast.error(`${errData.errors}`);
+            
           } else if (err?.status === 422) {
             console.log(`${error.response.data.errors}`);
           } else {

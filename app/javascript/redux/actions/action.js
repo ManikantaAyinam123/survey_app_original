@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { 
   FETCH_ALL_VOTERS_REQUEST, FETCH_ALL_VOTERS_SUCCESS, FETCH_ALL_VOTERS_FAILURE, 
   SEARCH_BY_NAME_REQUEST, SEARCH_BY_NAME_SUCCESS, SEARCH_BY_NAME_FAILURE, 
@@ -101,36 +102,30 @@ export const fetchBoothNamesAction = (name) => {
   };
 };
 
-export const loginAction = (formData,navigate) => {
+export const loginAction = (formData, navigate) => {
   console.log("Login action triggered with formData:", formData);
   return async (dispatch) => {
     dispatch({ type: LOGIN_REQUEST });
     try {
-     
       const data = await loginData(formData);
-      console.log("in action --------------->",data);
-      dispatch({ type: LOGIN_SUCCESS, payload: data });
-      console.log("total data",data.data);
-      if (data.status === 200 )
-      {
-        
+      console.log("Login API response:", data);
+      
+      if (data.status === 200) {
         localStorage.setItem('userType', data.data.user_type);
         localStorage.setItem('token', data.data.token);
         localStorage.setItem('name', data.data.username);
-         console.log("local storage data in action ========>")
-         console.log(localStorage.getItem('userType'));
-         console.log(localStorage.getItem('token'));
-         console.log(localStorage.getItem('name'));
-          if(localStorage.getItem('userType') === 'volunteer') 
-          {    
+
+        if (localStorage.getItem('userType') === 'volunteer') {
           navigate('/VolunteerData');
-          } 
-          else
-          {
-            navigate('/LeadData');
-          }
-     }
+        } else {
+          navigate('/LeadData');
+        }
+
+        dispatch({ type: LOGIN_SUCCESS, payload: data });
+      } 
     } catch (error) {
+      console.error("Login error:", error);
+      toast.error('Invalid email or password'); 
       dispatch({ type: LOGIN_FAILURE, payload: error.message });
     }
   };
