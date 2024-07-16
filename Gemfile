@@ -22,6 +22,8 @@ gem 'will_paginate'
 gem 'cancancan'
  gem 'webpacker'
  gem 'foreman'
+ gem "tzinfo-data", platforms: %i[ windows jruby ]
+
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
