@@ -309,6 +309,7 @@ DEPENDENCIES
   roo-xls
   sass-rails
   sprockets (< 4)
+  tzinfo-data
   webpacker
   will_paginate
 
