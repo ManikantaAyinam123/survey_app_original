@@ -23,7 +23,7 @@ gem 'cancancan'
  gem 'webpacker'
  gem 'foreman'
  
- gem "tzinfo-data", platforms: %i[mswin mswin64 mingw x64_mingw jruby ]
+gem "tzinfo-data"
 
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
