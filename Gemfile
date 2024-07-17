@@ -23,9 +23,7 @@ gem 'cancancan'
  gem 'webpacker'
  gem 'foreman'
  
-if RUBY_PLATFORM =~ /win32|mingw/
-  gem 'tzinfo-data'
-end
+gem "tzinfo-data"
 
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
