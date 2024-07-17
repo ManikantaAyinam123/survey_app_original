@@ -278,8 +278,6 @@ GEM
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2024.1)
-      tzinfo (>= 1.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     webpacker (5.4.4)
@@ -315,7 +313,6 @@ DEPENDENCIES
   roo-xls
   sass-rails
   sprockets (< 4)
-  tzinfo-data
   webpacker
   will_paginate
 
