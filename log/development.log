@@ -1445,3 +1445,282 @@ puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
 puma (6.4.2) lib/puma/server.rb:464:in `process_client'
 puma (6.4.2) lib/puma/server.rb:245:in `block in run'
 puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /home/actimize/Music/survey_app_original/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /home/actimize/Music/survey_app_original/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /home/actimize/Music/survey_app_original/config/environment.rb:5)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5734670252676646680)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5734670252676646680)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_admin_comments" CASCADE[0m
+  [1m[35m (21.5ms)[0m  [1m[35mCREATE TABLE "active_admin_comments" ("id" bigserial primary key, "namespace" character varying, "body" text, "resource_type" character varying, "resource_id" bigint, "author_type" character varying, "author_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_author" ON "active_admin_comments" ("author_type", "author_id")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_active_admin_comments_on_resource" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "admin_users" CASCADE[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "uploads" CASCADE[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "uploads" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "voter_name" character varying, "age" integer, "sex" character varying, "state" character varying, "constituency" character varying, "casted" boolean, "party" character varying, "figured_by" character varying, "booth_name" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "user_type" character varying, "username" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "plaintext_password" character varying, "password_digest" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "voters" CASCADE[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "voters" ("id" bigserial primary key, "voter_name" character varying, "age" integer, "gender" character varying, "house_number" character varying, "booth_name" character varying, "casted" boolean, "figured_by" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "mobile_number" bigint, "party" character varying)[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240620091206)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240611133326),
+(20240606142431),
+(20240604090012),
+(20240604043657),
+(20240604043324),
+(20240520094540),
+(20240517114116),
+(20240517070721),
+(20240516090211),
+(20240514063417),
+(20240514063415);[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (2.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-07-19 08:26:46.418586', '2024-07-19 08:26:46.418594') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (1.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2024-07-19 08:26:46.425627' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '961f38a38efb000d4e95c0cb97fbb88bef0dd102', '2024-07-19 08:26:46.430148', '2024-07-19 08:26:46.430153') RETURNING "key"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4767245391648025860)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4767245391648025860)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists? (6.1ms)[0m  [1m[34mSELECT 1 AS one FROM "admin_users" WHERE "admin_users"."email" = $1 LIMIT $2[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/" for ::1 at 2024-07-22 12:14:40 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (4.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 7.7ms | Allocations: 1888)
+Completed 200 OK in 20ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 6059)
+
+
+Started GET "/favicon.ico" for ::1 at 2024-07-22 12:14:42 +0530
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 5.4ms | Allocations: 2426)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 2896)
+
+
+Started POST "/api/auth/login" for ::1 at 2024-07-22 12:14:50 +0530
+Processing by Api::AuthenticationController#login as JSON
+  Parameters: {"email"=>"m@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "m@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/authentication_controller.rb:6:in `login'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JsonWebToken> at /home/actimize/Music/survey_app_original/app/lib/json_web_token.rb:2)
+Completed 200 OK in 430ms (Views: 0.2ms | ActiveRecord: 41.6ms | Allocations: 15951)
+
+
+Started GET "/favicon.ico" for ::1 at 2024-07-22 12:14:51 +0530
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"favicon"}
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 2.1ms | Allocations: 1229)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 1589)
+
+
+Started GET "/api/voters/search_by_booth_name?booth_name=m" for ::1 at 2024-07-22 12:14:54 +0530
+Processing by Api::VotersController#search_by_booth_name as JSON
+  Parameters: {"booth_name"=>"m"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:34:in `authorize_request'
+Started GET "/api/voters?booth_name=m&page=1" for ::1 at 2024-07-22 12:14:54 +0530
+  [1m[36mVoter Pluck (4.1ms)[0m  [1m[34mSELECT DISTINCT "voters"."booth_name" FROM "voters" WHERE (Lower(booth_name) LIKE '%m%')[0m
+  ↳ app/controllers/api/voters_controller.rb:67:in `search_by_booth_name'
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 6.4ms | Allocations: 5463)
+
+
+Processing by Api::VotersController#index as JSON
+  Parameters: {"booth_name"=>"m", "page"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:34:in `authorize_request'
+  [1m[36mVoter Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "m"]]
+  ↳ app/controllers/api/voters_controller.rb:18:in `index'
+  [1m[36mCACHE Voter Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "m"]]
+  ↳ app/controllers/api/voters_controller.rb:20:in `index'
+  [1m[36mVoter Load (1.6ms)[0m  [1m[34mSELECT "voters".* FROM "voters" WHERE "voters"."booth_name" = $1 ORDER BY "voters"."id" ASC LIMIT $2 OFFSET $3[0m  [["booth_name", "m"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/voters_controller.rb:21:in `index'
+Completed 200 OK in 16ms (Views: 3.2ms | ActiveRecord: 4.2ms | Allocations: 3543)
+
+
+Started GET "/api/voters?booth_name=S.B.T.S%20Mpl.%20.P.%20Sch%20Ool,Mandapeta&page=1" for ::1 at 2024-07-22 12:14:55 +0530
+Processing by Api::VotersController#index as JSON
+  Parameters: {"booth_name"=>"S.B.T.S Mpl. .P. Sch Ool,Mandapeta", "page"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:34:in `authorize_request'
+  [1m[36mVoter Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "S.B.T.S Mpl. .P. Sch Ool,Mandapeta"]]
+  ↳ app/controllers/api/voters_controller.rb:18:in `index'
+  [1m[36mCACHE Voter Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "S.B.T.S Mpl. .P. Sch Ool,Mandapeta"]]
+  ↳ app/controllers/api/voters_controller.rb:20:in `index'
+  [1m[36mVoter Load (0.7ms)[0m  [1m[34mSELECT "voters".* FROM "voters" WHERE "voters"."booth_name" = $1 ORDER BY "voters"."id" ASC LIMIT $2 OFFSET $3[0m  [["booth_name", "S.B.T.S Mpl. .P. Sch Ool,Mandapeta"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/voters_controller.rb:21:in `index'
+Completed 200 OK in 23ms (Views: 14.3ms | ActiveRecord: 3.1ms | Allocations: 12762)
+
+
+Started GET "/" for ::1 at 2024-07-23 15:20:15 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (9.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/actimize/Music/survey_app_original/public/packs
+[Webpacker] warning package.json: No license field
+
+[Webpacker] Hash: 5c3c0debed8757e2c8b2
+Version: webpack 4.47.0
+Time: 13242ms
+Built at: 23/07/2024 3:20:31 pm
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-cc1a7a1ce5f4253e344a.js   6.59 MiB  application  [emitted] [immutable]  application
+js/application-cc1a7a1ce5f4253e344a.js.map    5.3 MiB  application  [emitted] [dev]        application
+          js/index-bf120d5d67d5c37d35fe.js   6.55 MiB        index  [emitted] [immutable]  index
+      js/index-bf120d5d67d5c37d35fe.js.map   5.27 MiB        index  [emitted] [dev]        index
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-cc1a7a1ce5f4253e344a.js js/application-cc1a7a1ce5f4253e344a.js.map
+Entrypoint index = js/index-bf120d5d67d5c37d35fe.js js/index-bf120d5d67d5c37d35fe.js.map
+[./app/javascript/App.js] 949 bytes {application} {index} [built]
+[./app/javascript/PrivateRoute.js] 1.68 KiB {application} {index} [built]
+[./app/javascript/packs/application.js] 512 bytes {application} [built]
+[./app/javascript/packs/index.jsx] 267 bytes {index} [built]
+[./app/javascript/pages/LeadPage.js] 476 bytes {application} {index} [built]
+[./app/javascript/pages/LoginPage.js] 320 bytes {application} {index} [built]
+[./app/javascript/pages/VolunteerPage.js] 461 bytes {application} {index} [built]
+[./app/javascript/redux/reducer/boothNameReducer.js] 1.7 KiB {application} [built]
+[./app/javascript/redux/reducer/constituencyNameReducer.js] 1.64 KiB {application} [built]
+[./app/javascript/redux/reducer/fetchAllVoters.js] 1.7 KiB {application} [built]
+[./app/javascript/redux/reducer/filterByCastedStatusReducer.js] 1.71 KiB {application} [built]
+[./app/javascript/redux/reducer/loginReducer.js] 1.52 KiB {application} [built]
+[./app/javascript/redux/reducer/rootReducer.js] 580 bytes {application} [built]
+[./app/javascript/redux/reducer/searchByNameReducer.js] 1.55 KiB {application} [built]
+[./app/javascript/redux/store.js] 232 bytes {application} [built]
+    + 1129 hidden modules
+
+  Rendered home/index.html.erb (Duration: 15811.2ms | Allocations: 5568)
+Completed 200 OK in 15822ms (Views: 15816.3ms | ActiveRecord: 0.0ms | Allocations: 9744)
+
+
+Started POST "/api/auth/login" for ::1 at 2024-07-23 15:21:23 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::AuthenticationController#login as JSON
+  Parameters: {"email"=>"m@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "m@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/authentication_controller.rb:6:in `login'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JsonWebToken> at /home/actimize/Music/survey_app_original/app/lib/json_web_token.rb:2)
+Completed 200 OK in 424ms (Views: 0.6ms | ActiveRecord: 34.8ms | Allocations: 16891)
+
+
+Started GET "/api/voters/search_by_booth_name?booth_name=m" for ::1 at 2024-07-23 15:21:26 +0530
+Processing by Api::VotersController#search_by_booth_name as JSON
+  Parameters: {"booth_name"=>"m"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:34:in `authorize_request'
+Started GET "/api/voters?booth_name=m&page=1" for ::1 at 2024-07-23 15:21:26 +0530
+  [1m[36mVoter Pluck (5.2ms)[0m  [1m[34mSELECT DISTINCT "voters"."booth_name" FROM "voters" WHERE (Lower(booth_name) LIKE '%m%')[0m
+  ↳ app/controllers/api/voters_controller.rb:67:in `search_by_booth_name'
+Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 7.7ms | Allocations: 5474)
+
+
+Processing by Api::VotersController#index as JSON
+  Parameters: {"booth_name"=>"m", "page"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:34:in `authorize_request'
+  [1m[36mVoter Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "m"]]
+  ↳ app/controllers/api/voters_controller.rb:18:in `index'
+  [1m[36mCACHE Voter Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "m"]]
+  ↳ app/controllers/api/voters_controller.rb:20:in `index'
+  [1m[36mVoter Load (1.6ms)[0m  [1m[34mSELECT "voters".* FROM "voters" WHERE "voters"."booth_name" = $1 ORDER BY "voters"."id" ASC LIMIT $2 OFFSET $3[0m  [["booth_name", "m"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/voters_controller.rb:21:in `index'
+Completed 200 OK in 18ms (Views: 3.8ms | ActiveRecord: 4.1ms | Allocations: 3544)
+
+
+Started GET "/api/voters?booth_name=S.B.T.S%20Mpl.%20.P.%20Sch%20Ool,Mandapeta&page=1" for ::1 at 2024-07-23 15:21:27 +0530
+Processing by Api::VotersController#index as JSON
+  Parameters: {"booth_name"=>"S.B.T.S Mpl. .P. Sch Ool,Mandapeta", "page"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:34:in `authorize_request'
+  [1m[36mVoter Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "S.B.T.S Mpl. .P. Sch Ool,Mandapeta"]]
+  ↳ app/controllers/api/voters_controller.rb:18:in `index'
+  [1m[36mCACHE Voter Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "S.B.T.S Mpl. .P. Sch Ool,Mandapeta"]]
+  ↳ app/controllers/api/voters_controller.rb:20:in `index'
+  [1m[36mVoter Load (0.7ms)[0m  [1m[34mSELECT "voters".* FROM "voters" WHERE "voters"."booth_name" = $1 ORDER BY "voters"."id" ASC LIMIT $2 OFFSET $3[0m  [["booth_name", "S.B.T.S Mpl. .P. Sch Ool,Mandapeta"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/voters_controller.rb:21:in `index'
+Completed 200 OK in 27ms (Views: 17.5ms | ActiveRecord: 3.3ms | Allocations: 12772)
+
+
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE DATABASE "survey_demo_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "survey_demo_test" ENCODING = 'unicode'[0m
+  [1m[35m (18.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5734670252676646680)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5734670252676646680)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2024-07-23 15:25:21 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (Duration: 10.1ms | Allocations: 3198)
+Completed 200 OK in 19ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 7381)
+
+
+Started POST "/api/auth/login" for ::1 at 2024-07-23 15:30:33 +0530
+Processing by Api::AuthenticationController#login as JSON
+  Parameters: {"email"=>"m@gmail.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "m@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/authentication_controller.rb:6:in `login'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JsonWebToken> at /home/actimize/Music/survey_app_deploy/app/lib/json_web_token.rb:2)
+Completed 200 OK in 399ms (Views: 0.2ms | ActiveRecord: 14.5ms | Allocations: 15986)
+
+
+Started GET "/api/voters/search_by_booth_name?booth_name=m" for ::1 at 2024-07-23 15:30:36 +0530
+Processing by Api::VotersController#search_by_booth_name as JSON
+  Parameters: {"booth_name"=>"m"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:34:in `authorize_request'
+Started GET "/api/voters?booth_name=m&page=1" for ::1 at 2024-07-23 15:30:36 +0530
+  [1m[36mVoter Pluck (4.3ms)[0m  [1m[34mSELECT DISTINCT "voters"."booth_name" FROM "voters" WHERE (Lower(booth_name) LIKE '%m%')[0m
+  ↳ app/controllers/api/voters_controller.rb:67:in `search_by_booth_name'
+Completed 200 OK in 22ms (Views: 0.4ms | ActiveRecord: 6.8ms | Allocations: 5358)
+
+
+Processing by Api::VotersController#index as JSON
+  Parameters: {"booth_name"=>"m", "page"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:34:in `authorize_request'
+  [1m[36mVoter Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "m"]]
+  ↳ app/controllers/api/voters_controller.rb:18:in `index'
+  [1m[36mCACHE Voter Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "m"]]
+  ↳ app/controllers/api/voters_controller.rb:20:in `index'
+  [1m[36mVoter Load (0.9ms)[0m  [1m[34mSELECT "voters".* FROM "voters" WHERE "voters"."booth_name" = $1 ORDER BY "voters"."id" ASC LIMIT $2 OFFSET $3[0m  [["booth_name", "m"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/voters_controller.rb:21:in `index'
+Completed 200 OK in 15ms (Views: 3.1ms | ActiveRecord: 1.8ms | Allocations: 3543)
+
+
+Started GET "/api/voters?booth_name=S.B.T.S%20Mpl.%20.P.%20Sch%20Ool,Mandapeta&page=1" for ::1 at 2024-07-23 15:30:38 +0530
+Processing by Api::VotersController#index as JSON
+  Parameters: {"booth_name"=>"S.B.T.S Mpl. .P. Sch Ool,Mandapeta", "page"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:34:in `authorize_request'
+  [1m[36mVoter Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "S.B.T.S Mpl. .P. Sch Ool,Mandapeta"]]
+  ↳ app/controllers/api/voters_controller.rb:18:in `index'
+  [1m[36mCACHE Voter Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "voters" WHERE "voters"."booth_name" = $1[0m  [["booth_name", "S.B.T.S Mpl. .P. Sch Ool,Mandapeta"]]
+  ↳ app/controllers/api/voters_controller.rb:20:in `index'
+  [1m[36mVoter Load (3.0ms)[0m  [1m[34mSELECT "voters".* FROM "voters" WHERE "voters"."booth_name" = $1 ORDER BY "voters"."id" ASC LIMIT $2 OFFSET $3[0m  [["booth_name", "S.B.T.S Mpl. .P. Sch Ool,Mandapeta"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/api/voters_controller.rb:21:in `index'
+Completed 200 OK in 44ms (Views: 16.3ms | ActiveRecord: 9.7ms | Allocations: 12763)
+
+
